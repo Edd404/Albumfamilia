@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply min-h-screen bg-cream-50 text-cream-900 antialiased;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 244, 225, 0.88), transparent 24%),
+    radial-gradient(circle at 80% 15%, rgba(245, 219, 208, 0.5), transparent 24%),
+    radial-gradient(circle at 50% 80%, rgba(227, 206, 179, 0.35), transparent 30%),
+    linear-gradient(180deg, #fffaf2 0%, #f6ecdf 42%, #f3e7d6 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(181, 143, 101, 0.28);
+}
+
+@layer components {
+  .soft-panel {
+    @apply rounded-[2rem] border border-white/60 bg-white/65 shadow-soft backdrop-blur-xl;
+  }
+
+  .paper-panel {
+    @apply rounded-[2rem] border border-cream-200/70 bg-paper shadow-paper;
+  }
+
+  .page-shell {
+    @apply relative h-full w-full overflow-hidden rounded-[2rem] border border-[#d6c0a4]/50 bg-gradient-to-br from-[#fffaf1] via-[#f7ecde] to-[#ead8bf] text-cream-900 shadow-paper;
+  }
+
+  .polaroid {
+    @apply relative overflow-hidden rounded-[1.5rem] border border-white/80 bg-white p-3 shadow-soft transition duration-300;
+  }
+
+  .polaroid::after {
+    content: "";
+    @apply pointer-events-none absolute inset-0 rounded-[1.5rem] ring-1 ring-white/60;
+  }
+
+  .page-label {
+    @apply inline-flex items-center gap-2 rounded-full border border-cream-200/80 bg-white/60 px-3 py-1 text-xs font-medium uppercase tracking-[0.24em] text-cream-700;
+  }
+
+  .subtle-input {
+    @apply w-full rounded-2xl border border-cream-200/80 bg-white/80 px-4 py-3 text-sm text-cream-900 outline-none transition placeholder:text-cream-400 focus:border-cream-400 focus:ring-4 focus:ring-cream-200/50;
+  }
+
+  .subtle-textarea {
+    @apply min-h-[120px] w-full rounded-2xl border border-cream-200/80 bg-white/80 px-4 py-3 text-sm text-cream-900 outline-none transition placeholder:text-cream-400 focus:border-cream-400 focus:ring-4 focus:ring-cream-200/50;
+  }
+
+  .subtle-select {
+    @apply w-full rounded-2xl border border-cream-200/80 bg-white/80 px-4 py-3 text-sm text-cream-900 outline-none transition focus:border-cream-400 focus:ring-4 focus:ring-cream-200/50;
+  }
+
+  .glass-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/60 bg-white/70 px-5 py-3 text-sm font-medium text-cream-800 shadow-soft transition hover:-translate-y-0.5 hover:bg-white;
+  }
+
+  .glass-btn-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-cream-800/20 bg-cream-900 px-5 py-3 text-sm font-medium text-cream-50 shadow-soft transition hover:-translate-y-0.5 hover:bg-cream-800;
+  }
+}
+
+.book-spine {
+  background:
+    linear-gradient(90deg, rgba(133, 96, 62, 0.18), rgba(255,255,255,0.05)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(135, 99, 65, 0.14));
+}
+
+.texture {
+  position: relative;
+}
+
+.texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  background-image:
+    radial-gradient(circle at 25% 20%, rgba(64, 39, 17, 0.18) 0 1px, transparent 1px),
+    radial-gradient(circle at 75% 30%, rgba(64, 39, 17, 0.12) 0 1px, transparent 1px),
+    radial-gradient(circle at 45% 70%, rgba(64, 39, 17, 0.10) 0 1px, transparent 1px);
+  background-size: 32px 32px, 28px 28px, 36px 36px;
+  mix-blend-mode: multiply;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
